@@ -34,21 +34,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Синие чернильные кляксы в фоне светлых секций */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%232C5AA0' fill-opacity='0.5' d='M100 18C132 10 168 26 180 58 192 88 184 124 160 144 136 164 96 168 68 152 40 136 24 102 32 72 40 42 68 26 100 18Z'/%3E%3Ccircle cx='178' cy='156' r='6' fill='%232C5AA0' fill-opacity='0.5'/%3E%3Ccircle cx='26' cy='138' r='4' fill='%232C5AA0' fill-opacity='0.5'/%3E%3Ccircle cx='60' cy='26' r='3.5' fill='%232C5AA0' fill-opacity='0.5'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%232C5AA0' fill-opacity='0.42' d='M80 30C110 14 150 22 164 52 178 82 170 118 146 138 122 158 84 160 58 144 32 128 20 94 30 66 38 44 56 40 80 30Z'/%3E%3Ccircle cx='180' cy='108' r='5' fill='%232C5AA0' fill-opacity='0.42'/%3E%3Ccircle cx='24' cy='70' r='4' fill='%232C5AA0' fill-opacity='0.42'/%3E%3Ccircle cx='120' cy='176' r='3' fill='%232C5AA0' fill-opacity='0.42'/%3E%3C/svg%3E");
-  background-repeat: no-repeat, no-repeat;
-  background-position: 97% -30px, 2% 78%;
-  background-size: 320px, 260px;
-}
-
 img { display: block; max-width: 100%; }
 
 ::selection { background: var(--terra); color: var(--paper); }
@@ -242,17 +227,18 @@ h2 {
 
 .split-head {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   margin-bottom: clamp(40px, 6vw, 64px);
   border-bottom: 1px solid rgba(42, 36, 30, 0.2);
   padding-bottom: 18px;
 }
 
-/* Подзаголовки: синие, крупные */
+/* Подзаголовки: синие, крупные, по центру экрана */
 .split-head__note {
-  font-size: clamp(16px, 1.9vw, 20px);
+  font-size: clamp(19px, 2.4vw, 26px);
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -274,14 +260,6 @@ h2 {
 }
 
 .principles li { border-top: 2px solid var(--ink); padding-top: 20px; }
-
-.principles span {
-  display: block;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--terra);
-  margin-bottom: 24px;
-}
 
 .principles h3 {
   font-weight: 700;
@@ -639,9 +617,6 @@ h2 {
   .nav__links a { font-size: 26px; font-family: var(--font-nav); }
   .nav__cta { display: none; }
   .nav__burger { display: block; }
-  .split-head { flex-direction: column; gap: 6px; }
-
-  body::before { background-size: 220px, 180px; }
 }
 
 @media (max-width: 560px) {
